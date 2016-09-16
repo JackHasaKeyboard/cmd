@@ -15,3 +15,11 @@
 - @sheets.each do |sheet|
   %h1
     = link_to sheet.name, sheet
+
+  - raw = Paperclip.io_adapters.for(sheet.md).read
+  - cats = raw.scan(/###/).length
+  - cmds = raw.scan(/^\|((?!-).)*$/).length + raw.scan(/^`+\s/).length
+
+  %div
+    %span= "#{cats} categories"
+    %span= "#{cmds} commands"
