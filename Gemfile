@@ -1,8 +1,10 @@
 source 'https://rubygems.org'
 
 gem 'haml', '~> 4.0', '>= 4.0.7'
+
 gem 'redcarpet', '~> 3.3', '>= 3.3.4'
 gem 'github-markdown', '~> 0.6.9'
+
 gem 'paperclip', '~> 4.3', '>= 4.3.6'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -53,4 +55,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 group :production do
 	gem 'rails_12factor'
+	gem 'aws-sdk', '~> 2.6', '>= 2.6.1'
 end
