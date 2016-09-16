@@ -1,6 +1,9 @@
 source 'https://rubygems.org'
 
 gem 'haml', '~> 4.0', '>= 4.0.7'
+gem 'redcarpet', '~> 3.3', '>= 3.3.4'
+gem 'github-markdown', '~> 0.6.9'
+gem 'paperclip', '~> 4.3', '>= 4.3.6'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
