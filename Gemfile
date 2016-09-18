@@ -55,5 +55,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 group :production do
 	gem 'rails_12factor'
-	gem 'aws-sdk', '~> 2.6', '>= 2.6.1'
+	gem 'aws-sdk', '< 2.0'
 end
