@@ -7,6 +7,8 @@ gem 'github-markdown', '~> 0.6.9'
 
 gem 'paperclip', '~> 4.3', '>= 4.3.6'
 
+gem 'friendly_id', '~> 5.1'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 # Use postgresql as the database for Active Record
