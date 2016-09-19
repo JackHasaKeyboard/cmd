@@ -1,6 +1,7 @@
 %p#notice= notice
 %h1= @sheet.name
-%a{href: @sheet.md} Download .md
+%a{:href => @sheet.md, :download => "#{@sheet.name}.md", :target => "blank"} Download .md
+
 
 = link_to 'Edit', edit_sheet_path(@sheet)
 
