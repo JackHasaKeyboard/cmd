@@ -39,6 +39,7 @@ $(document).on('turbolinks:load', function(){
 		"-khtml-user-select": "none",		 
 		"-moz-user-select": "none",			 
 		"-ms-user-select": "none",			 
-		"user-select": "none"				
+		"user-select": "none",				
+		"min-width":"18px"
 	});
 });
