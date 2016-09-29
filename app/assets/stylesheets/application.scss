@@ -13,3 +13,14 @@
  *= require_tree .
  *= require_self
  */
+
+#eg {
+	display: flex;
+	> div {
+		flex-grow: 1;
+		padding: 10px;
+	}
+	pre:not(:first-child) {
+		margin: 0;
+	}
+}

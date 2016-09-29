@@ -7,11 +7,22 @@
 
 %p This website uses Github Flavored Markdown (GFM) to render HTML. As such, markdown files can be viewed in a text editor or rendered in a browser. Whichever you prefer.
 
+%p This aims to create a simple, standard way of documenting how to use programs.
+
 %p 
   Because creating tables is a pain, I'd recommend you'd use this website to create markdown files: 
   = link_to "https://donatstudios.com/CsvToMarkdownTable", "https://donatstudios.com/CsvToMarkdownTable"
 
-%p This website will soon have a tool that can generate markdown.
+#eg
+  - markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, extensions = {})
+  - file = File.read("eg.md")
+
+  %div
+    = GitHub::Markdown.render_gfm(file).html_safe
+
+  %div
+    - file.each_line do |line|
+      %pre= line
 
 - @sheets.each do |sheet|
   %h1
