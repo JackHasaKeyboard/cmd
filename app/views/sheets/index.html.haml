@@ -5,7 +5,7 @@
 
 %h3 Welcome to a repository of cheatsheets for programs written in markdown!
 
-%p This website uses Github Flavored Markdown (GFM) to render HTML. As such, markdown files can be viewed in a text editor or rendered in a browser. Whichever you prefer.
+%p This website uses Github Flavored Markdown (GFM) to render HTML. As such, tables can be viewed in a text editor or rendered in a browser. Whichever you prefer.
 
 %p This aims to create a simple, standard way of documenting how to use programs.
 
@@ -28,10 +28,10 @@
   %h1
     = link_to sheet.name, sheet
 
-  - raw = Paperclip.io_adapters.for(sheet.md).read
-  - cats = raw.scan(/###/).length
-  - cmds = raw.scan(/^\|((?!-).)*$/).length + raw.scan(/^`+\s/).length
+  -# - raw = Paperclip.io_adapters.for(sheet.md).read
+  -# - cats = raw.scan(/###/).length
+  -# - cmds = raw.scan(/^\|((?!-).)*$/).length + raw.scan(/^`+\s/).length
 
-  %div
-    %span= "#{cats} categories"
-    %span= "#{cmds} commands"
+  -# %div
+  -#   %span= "#{cats} categories"
+  -#   %span= "#{cmds} commands"
