@@ -18,9 +18,18 @@
 $(document).on('turbolinks:load', function(){
 	$("tr").each(function(){
 		$(this).find("td:not(:empty):not(:last):not(:has(code))").addClass("key");
+		$(this).find("td:not(:last):not(:has(code))").addClass("slot");
+
+		$(this).find(".slot:not(:last)").first().css({
+			"border-radius": "4px 0 0 4px"
+		});
 
 		$(this).find(".key:not(:last)").first().css({
 			"border-radius": "4px 0 0 4px"
+		});
+
+		$(this).find(".slot:not(:first)").last().css({
+			"border-radius": "0 4px 4px 0"
 		});
 
 		$(this).find(".key:not(:first)").last().css({
@@ -41,5 +50,10 @@ $(document).on('turbolinks:load', function(){
 		"-ms-user-select": "none",			 
 		"user-select": "none",				
 		"min-width":"18px"
+	});
+
+	$("td:not(.key)").css({
+		"padding-top": "0",
+		"padding-bottom": "0"
 	});
 });
