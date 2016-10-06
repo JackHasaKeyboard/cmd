@@ -1,11 +1,27 @@
 %p#notice= notice
 %h1= @sheet.name
-%a{:href => @sheet.md, :download => "#{@sheet.name}.md", :target => "blank"} Download .md
 
+#links
+  %div
+    %a{:href => @sheet.md, :download => "#{@sheet.name}.md", :target => "blank"} Download .md
+    = link_to 'Edit', edit_sheet_path(@sheet)
 
-= link_to 'Edit', edit_sheet_path(@sheet)
+  %div
+    %a{:href => @sheet.md, :download => "#{@sheet.name}.md", :target => "blank"}
+      Fork
+      = image_tag "fork.svg"
 
-- markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, extensions = {})
+    %a{:href => @sheet.md, :download => "#{@sheet.name}.md", :target => "blank"}
+      Pull request
+      = image_tag "pull-request.svg"
 
-- file = Paperclip.io_adapters.for(@sheet.md).read
-= GitHub::Markdown.render_gfm(file).html_safe
+- if @sheet.md.exists?
+  - raw = Paperclip.io_adapters.for(@sheet.md).read
+
+- else
+  - repo = @sheet.repo.split('/')[1]
+
+  - uri = URI("https://rawgit.com/#{@sheet.repo}/master/#{repo}")
+  - raw = Net::HTTP.get(uri).force_encoding(Encoding::UTF_8)
+
+= GitHub::Markdown.render_gfm(raw).html_safe
