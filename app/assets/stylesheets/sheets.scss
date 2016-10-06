@@ -33,3 +33,10 @@ p {
 p a {
 	display: inline;
 }
+
+#links {
+	display: flex;
+	div:nth-child(2) {
+		 margin-left: auto;
+	}
+}

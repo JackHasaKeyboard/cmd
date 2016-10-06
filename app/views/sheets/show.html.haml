@@ -2,26 +2,22 @@
 %h1= @sheet.name
 
 #links
-  %div
-    %a{:href => @sheet.md, :download => "#{@sheet.name}.md", :target => "blank"} Download .md
-    = link_to 'Edit', edit_sheet_path(@sheet)
+  - if @sheet.md.exists?
+    %div
+      %a{:href => @sheet.md, :download => "#{@sheet.name}.md", :target => "blank"} Download .md
 
-  %div
-    %a{:href => @sheet.md, :download => "#{@sheet.name}.md", :target => "blank"}
-      Fork
-      = image_tag "fork.svg"
+    - raw = Paperclip.io_adapters.for(@sheet.md).read
 
-    %a{:href => @sheet.md, :download => "#{@sheet.name}.md", :target => "blank"}
-      Pull request
-      = image_tag "pull-request.svg"
+  - else
+    - raw_remote = URI("https://rawgit.com/#{@sheet.repo}/master/#{@sheet.repo.split('/')[1]}")
+    - raw = Net::HTTP.get(raw_remote).force_encoding(Encoding::UTF_8)
 
-- if @sheet.md.exists?
-  - raw = Paperclip.io_adapters.for(@sheet.md).read
+    - remote = "https://github.com/#{@sheet.repo}"
 
-- else
-  - repo = @sheet.repo.split('/')[1]
-
-  - uri = URI("https://rawgit.com/#{@sheet.repo}/master/#{repo}")
-  - raw = Net::HTTP.get(uri).force_encoding(Encoding::UTF_8)
+    %div
+      %a{:href => raw, :download => "#{@sheet.name}.md", :target => "blank"} Download .md
+    %div
+      %a{:href => "#{remote}/fork", :target => "blank"} Fork
+      %a{:href => "#{remote}/compare", :target => "blank"} Pull request
 
 = GitHub::Markdown.render_gfm(raw).html_safe

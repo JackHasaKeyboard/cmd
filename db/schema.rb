@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160919182008) do
+ActiveRecord::Schema.define(version: 20161001160528) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 20160919182008) do
     t.integer  "md_file_size"
     t.datetime "md_updated_at"
     t.string   "slug"
+    t.string   "repo"
     t.index ["slug"], name: "index_sheets_on_slug", unique: true, using: :btree
   end
 

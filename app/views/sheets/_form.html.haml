@@ -7,9 +7,19 @@
       %ul
         - sheet.errors.full_messages.each do |message|
           %li= message
+
   .field
     = f.label :name
     = f.text_field :name
+
+  .field
     = f.file_field :md
+
+  %h3 or
+
+  .field
+    = f.label :"Github repo"
+    = f.text_field :repo, placeholder: "username/repo"
+
   .actions
     = f.submit
