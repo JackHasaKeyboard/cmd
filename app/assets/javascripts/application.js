@@ -20,20 +20,24 @@ $(document).on('turbolinks:load', function(){
 		$(this).find("td:not(:empty):not(:last):not(:has(code))").addClass("key");
 		$(this).find("td:not(:last):not(:has(code))").addClass("slot");
 
-		$(this).find(".slot:not(:last)").first().css({
-			"border-radius": "4px 0 0 4px"
-		});
-
 		$(this).find(".key:not(:last)").first().css({
 			"border-radius": "4px 0 0 4px"
 		});
 
-		$(this).find(".slot:not(:first)").last().css({
-			"border-radius": "0 4px 4px 0"
-		});
-
 		$(this).find(".key:not(:first)").last().css({
 			"border-radius": "0 4px 4px 0"
+		});
+	});
+
+	$("tbody").has("td:first-child:empty").find("tr").each(function(){
+		$(this).find(".slot").first().css({
+			"border-top-right-radius": "0",
+			"border-bottom-right-radius": "0"		
+		});
+
+		$(this).find(".slot").last().css({
+			"border-top-right-radius": "4px",
+			"border-bottom-right-radius": "4px"		
 		});
 	});
 
