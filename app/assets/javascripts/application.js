@@ -17,8 +17,8 @@
 
 $(document).on('turbolinks:load', function(){
 	$("tr").each(function(){
-		$(this).find("td:not(:empty):not(:last):not(:has(code))").addClass("key");
 		$(this).find("td:not(:last):not(:has(code))").addClass("slot");
+		$(this).find(".slot:not(:empty)").addClass("key");
 
 		$(this).find(".key:not(:last)").first().css({
 			"border-radius": "4px 0 0 4px"
