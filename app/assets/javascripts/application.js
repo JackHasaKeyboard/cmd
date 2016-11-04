@@ -15,7 +15,7 @@
 //= require turbolinks
 //= require_tree .
 
-$(document).on('turbolinks:load', function(){
+$(document).on('turbolinks:load', function() {
 	$("tr").each(function(){
 		$(this).find("td:not(:last):not(:has(code))").addClass("slot");
 		$(this).find(".slot:not(:empty)").addClass("key");
@@ -29,7 +29,7 @@ $(document).on('turbolinks:load', function(){
 		});
 	});
 
-	$("tbody").has("td:first-child:empty").find("tr").each(function(){
+	$("tbody").has("td:first-child:empty").find("tr").each(function() {
 		$(this).find(".slot").first().css({
 			"border-top-right-radius": "0",
 			"border-bottom-right-radius": "0"		
@@ -39,25 +39,5 @@ $(document).on('turbolinks:load', function(){
 			"border-top-right-radius": "4px",
 			"border-bottom-right-radius": "4px"		
 		});
-	});
-
-	$(".key").css({
-		"background": "#e9e9e9",
-		"text-align": "center",
-		"color": "#bcbcbc",
-		"border": "1px solid #bcbcbc",
-		"border-bottom": "2px solid #bcbcbc",
-		"-webkit-touch-callout": "none", 
-		"-webkit-user-select": "none",	 
-		"-khtml-user-select": "none",		 
-		"-moz-user-select": "none",			 
-		"-ms-user-select": "none",			 
-		"user-select": "none",				
-		"min-width":"18px"
-	});
-
-	$("td:not(.key)").css({
-		"padding-top": "0",
-		"padding-bottom": "0"
 	});
 });

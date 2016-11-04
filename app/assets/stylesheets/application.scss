@@ -24,3 +24,23 @@
 		margin: 0;
 	}
 }
+
+.key {
+	background: #e9e9e9;
+	text-align: center;
+	color: #bcbcbc;
+	border: 1px solid #bcbcbc;
+	border-bottom: 2px solid #bcbcbc;
+	-webkit-touch-callout: none; 
+	-webkit-user-select: none;	 
+	-khtml-user-select: none;		 
+	-moz-user-select: none;			 
+	-ms-user-select: none;			 
+	user-select: none;				
+	min-width:18px;
+}
+
+td:not(.key) {
+	padding-top: 0;
+	padding-bottom: 0;
+}
