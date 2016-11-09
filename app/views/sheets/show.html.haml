@@ -9,10 +9,19 @@
     - raw = Paperclip.io_adapters.for(@sheet.md).read
 
   - else
-    - raw_remote = URI("https://rawgit.com/#{@sheet.repo}/master/#{@sheet.repo.split('/')[1]}")
+    -# https://github.com/JackHasaKeyboard/ableton-live.md/blob/master/ableton-live.md
+    -# https://cdn.rawgit.com/JackHasaKeyboard/ableton-live.md/master/ableton-live.md
+
+    - user = @sheet.link.split('/')[3]
+    - repo = @sheet.link.split('/')[4]
+    - branch = @sheet.link.split('/')[6]
+    - file_name = @sheet.link.split('/')[7]
+
+    - raw_remote = URI("https://cdn.rawgit.com/#{user}/#{repo}/#{branch}/#{file_name}")
+
     - raw = Net::HTTP.get(raw_remote).force_encoding(Encoding::UTF_8)
 
-    - remote = "https://github.com/#{@sheet.repo}"
+    - remote = "https://github.com/#{user}/#{repo}"
 
     %div
       %a{:href => raw, :download => "#{@sheet.name}.md", :target => "blank"} Download .md

@@ -4,7 +4,7 @@ class SheetsController < ApplicationController
   # GET /sheets
   # GET /sheets.json
   def index
-    @sheets = Sheet.all
+    @sheets = Sheet.all.order('name ASC')
   end
 
   # GET /sheets/1
@@ -69,6 +69,6 @@ class SheetsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def sheet_params
-      params.require(:sheet).permit(:name, :md, :repo)
+      params.require(:sheet).permit(:name, :md, :link)
     end
 end
