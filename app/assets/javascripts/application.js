@@ -16,7 +16,7 @@
 //= require_tree .
 
 $(document).on('turbolinks:load', function() {
-	$("tr").each(function(){
+	$("tr").each(function() {
 		$(this).find("td:not(:last):not(:has(code))").addClass("slot");
 		$(this).find(".slot:not(:empty)").addClass("key");
 
