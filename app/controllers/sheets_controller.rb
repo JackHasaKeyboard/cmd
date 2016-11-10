@@ -4,12 +4,15 @@ class SheetsController < ApplicationController
   # GET /sheets
   # GET /sheets.json
   def index
+		@title = "Cheatsheet MarkDown"
+
     @sheets = Sheet.all.order('name ASC')
   end
 
   # GET /sheets/1
   # GET /sheets/1.json
   def show
+		@title = "#{@sheet.name} - CMD"
   end
 
   # GET /sheets/new
