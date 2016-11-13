@@ -17,11 +17,15 @@ class SheetsController < ApplicationController
 
   # GET /sheets/new
   def new
+		@title = "Cheatsheet MarkDown"
+
     @sheet = Sheet.new
   end
 
   # GET /sheets/1/edit
   def edit
+		@title = "Cheatsheet MarkDown"
+
   end
 
   # POST /sheets
